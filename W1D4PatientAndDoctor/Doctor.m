@@ -17,6 +17,11 @@
     _specialization = spec;
     _patientsAccepted = [[NSMutableSet alloc] init];
     _patientsQueue = [[NSMutableSet alloc] init];
+    _medications = @{
+                     @"nausea":@"sleep",
+                     @"headache":@"advil",
+                     @"doesnt bleed":@"Go home and grab a beer"
+                     };
   }
   return self;
 }
@@ -31,7 +36,7 @@
       
       NSLog(@"%@ was accepted by %@", currentPatient.name, self.name);
     } else {
-      NSLog(@"%@ was NOT accepted by %@", currentPatient.name, self.name);
+      NSLog(@"%@ was NOT accepted by %@. %@ doesn't have a health card.", currentPatient.name, self.name, currentPatient.name);
     }
   
   
@@ -57,18 +62,13 @@
     }
     
     //Give prescriptions
-    if ([symptoms containsObject:@"nausea"]){
-      NSLog(@"For %@: %@ prescribed sleep for nausea.", patient.name, self.name );
-      [patient.currentPrescriptions addObject:@"sleep for nausea"];
+    for (NSString *symptom in symptoms){
+      if (self.medications[symptom]){
+        NSLog(@"For %@: %@ prescribed %@ for %@.", patient.name, self.name, self.medications[symptom],symptom);
+        [patient.currentPrescriptions addObject:@"sleep for nausea"];
+      }
     }
-    if([symptoms containsObject:@"headache"]){
-      NSLog(@"For %@: %@ prescribed advil for headache.", patient.name, self.name );
-      [patient.currentPrescriptions addObject:@"advil for headache"];
-    }
-    if([symptoms containsObject:@"doesn't bleed"]){
-      NSLog(@"For %@: %@ said \"Go home and grab a beer\".", patient.name, self.name );
-      //[patient.currentPrescriptions addObject:@"nothing for you my friend"];
-    }
+    
   } else {
     NSLog(@"%@ was never accepted by %@. %@ can't issue prescriptions.", patient.name, self.name, self.name);
   }

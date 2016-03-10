@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *specialization;
 @property (nonatomic, strong) NSMutableSet *patientsAccepted;
 @property (nonatomic, strong) NSMutableSet *patientsQueue;
+@property (nonatomic, strong) NSDictionary *medications;
 
 -(instancetype)initWithName:(NSString *)name andSpecialization:(NSString *)spec;
 -(BOOL)acceptPatient:(Patient *)patient;// withHealthCardNo:(int)healthCardNumber;
