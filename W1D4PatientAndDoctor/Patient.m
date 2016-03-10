@@ -7,8 +7,18 @@
 //
 
 #import "Patient.h"
+#import "Doctor.h"
 
 @implementation Patient
+
+-(instancetype)initWithName:(NSString *)name withAge:(int)age withHealthCardNumber:(int)number{
+  if (self = [super init]){
+    _name = name;
+    _age = age;
+    _healthCardNumber = number;
+  }
+  return self;
+}
 
 -(void)visitDoctor:(Doctor *)doctor{
   

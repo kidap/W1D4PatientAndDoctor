@@ -7,15 +7,32 @@
 //
 
 #import "Doctor.h"
+#import "Patient.h"
 
 @implementation Doctor
 
--(BOOL)acceptPatient:(Patient *)patient withHealthCardNo:(int)healthCardNumber{
-  
-  return YES;
+-(instancetype)initWithName:(NSString *)name andSpecialization:(NSString *)spec{
+  if (self = [super init]){
+    _name = name;
+    _specialization = spec;
+  }
+  return self;
+}
+
+-(BOOL)acceptPatient:(Patient *)patient{// withHealthCardNo:(int)healthCardNumber{
+  if (patient.healthCardNumber && patient.healthCardNumber != 0){
+    return YES;
+  }
+  return NO;
 }
 -(void)writePrescriptionForPatient:(Patient *)patient{
 
 }
+-(void)readPrescription:(NSMutableSet *)prescription{
+}
 
+-(NSMutableSet *)writePrescription:(NSMutableSet *)prescription{
+
+  return [[NSMutableSet alloc] init];
+}
 @end
