@@ -17,6 +17,7 @@
 @property (nonatomic, strong) Doctor *currentDoctor;
 @property (nonatomic, strong) NSMutableSet *currentPrescriptions;
 
+-(instancetype)initWithName:(NSString *)name withAge:(int)age;
 -(instancetype)initWithName:(NSString *)name withAge:(int)age withHealthCardNumber:(int)number;
 -(void)visitDoctor:(Doctor *)doctor;
 -(void)requestMedication:(Doctor *)doctor withSymptoms:(NSMutableSet *)symptoms;

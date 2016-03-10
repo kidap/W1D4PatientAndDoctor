@@ -11,11 +11,21 @@
 
 @implementation Patient
 
--(instancetype)initWithName:(NSString *)name withAge:(int)age withHealthCardNumber:(int)number{
+
+-(instancetype) initWithName:(NSString *)name withAge:(int)age withHealthCardNumber:(int)number{
   if (self = [super init]){
     _name = name;
     _age = age;
     _healthCardNumber = number;
+    _currentPrescriptions = [[NSMutableSet alloc] init];
+  }
+  return self;
+}
+
+-(instancetype)initWithName:(NSString *)name withAge:(int)age{
+  if (self = [super init]){
+    _name = name;
+    _age = age;
     _currentPrescriptions = [[NSMutableSet alloc] init];
   }
   return self;

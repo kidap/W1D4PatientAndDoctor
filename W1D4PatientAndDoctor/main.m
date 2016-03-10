@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
 
     Doctor *doctor1 = [[Doctor alloc] initWithName:@"Dr. Who" andSpecialization:@"Magic"];
     Patient *patient1 = [[Patient alloc] initWithName:@"Godzilla" withAge:300 withHealthCardNumber:16];
-    Patient *patient2 = [[Patient alloc] initWithName:@"Wolverine" withAge:220 withHealthCardNumber:0];
+    Patient *patient2 = [[Patient alloc] initWithName:@"Wolverine" withAge:220];
     Patient *patient3 = [[Patient alloc] initWithName:@"Deadpool" withAge:220 withHealthCardNumber:99];
     
     //Patients visiting the clinic
