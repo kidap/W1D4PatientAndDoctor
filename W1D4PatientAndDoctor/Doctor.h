@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Patient.h"
 
-@interface Doctor : NSObject <MedicalStuff>
+@interface Doctor : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *specialization;
 @property (nonatomic, strong) NSMutableSet *patientsAccepted;
+@property (nonatomic, strong) NSMutableSet *patientsQueue;
 
 -(instancetype)initWithName:(NSString *)name andSpecialization:(NSString *)spec;
 -(BOOL)acceptPatient:(Patient *)patient;// withHealthCardNo:(int)healthCardNumber;
--(void)writePrescriptionForPatient:(Patient *)patient;
+-(void)writePrescriptionForPatient:(Patient *)patient withSymptoms:(NSMutableSet *)symptoms;
+-(void)startAttendingToPatientsInQueue;
 @end

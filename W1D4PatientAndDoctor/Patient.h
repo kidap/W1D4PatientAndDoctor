@@ -9,20 +9,12 @@
 #import <Foundation/Foundation.h>
 @class Doctor;
 
-@protocol MedicalStuff <NSObject>
-
--(void)readPrescription:(NSMutableSet *)prescription;
--(NSMutableSet *)writePrescription:(NSMutableSet *)prescription;
-
-@end
-
-@interface Patient : NSObject{
-  id <MedicalStuff> _delegate;
-}
+@interface Patient : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) int age;
 @property (nonatomic) int healthCardNumber;
+@property (nonatomic, strong) Doctor *currentDoctor;
 @property (nonatomic, strong) NSMutableSet *currentPrescriptions;
 
 -(instancetype)initWithName:(NSString *)name withAge:(int)age withHealthCardNumber:(int)number;

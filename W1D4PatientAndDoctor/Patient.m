@@ -16,15 +16,21 @@
     _name = name;
     _age = age;
     _healthCardNumber = number;
+    _currentPrescriptions = [[NSMutableSet alloc] init];
   }
   return self;
 }
 
 -(void)visitDoctor:(Doctor *)doctor{
+  self.currentDoctor = doctor;
   
+  //List your name
+  [self.currentDoctor.patientsQueue addObject:self];
+  NSLog(@"%@: I'll be visiting %@.",self.name, doctor.name);
 }
 
 -(void)requestMedication:(Doctor *)doctor withSymptoms:(NSMutableSet *)symptoms{
+  [doctor writePrescriptionForPatient:self withSymptoms:symptoms];
 
 }
 
